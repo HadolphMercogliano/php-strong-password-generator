@@ -1,5 +1,15 @@
 <?php 
 $pswLength = $_GET["pswLength"];
+$finalPsw = RandomPswGen($pswLength);
+
+function RandomPswGen($pswLength) {
+    $charList = '$!?£%&@#';
+    $RandomPsw = "";
+    for ($i = 0; $i < $pswLength; $i++) {
+        $RandomPsw .= $charList[rand(0, strlen($charList) - 1)];
+    }
+    return $RandomPsw;
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +46,17 @@ $pswLength = $_GET["pswLength"];
         </form>
       </div>
     </div>
+
+    <?php if(!empty($finalPsw)) :?>
+    <div class="card">
+      <div class="card-header">
+        La tua password:
+      </div>
+      <div class="card-body">
+        <p class="card-text"><?= $finalPsw ?></p>
+      </div>
+    </div>
+    <?php endif; ?>
   </div>
 </body>
 
