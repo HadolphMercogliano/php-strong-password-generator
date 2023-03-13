@@ -1,15 +1,9 @@
 <?php 
+
 $pswLength = $_GET["pswLength"] ?? "";
+include_once __DIR__ . './partials/function.php';
 $finalPsw = RandomPswGen($pswLength);
 
-function RandomPswGen($pswLength) {
-    $charList = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$#@&%!?';
-    $RandomPsw = "";
-    for ($i = 0; $i < $pswLength; $i++) {
-        $RandomPsw .= $charList[rand(0, strlen($charList) - 1)];
-    }
-    return $RandomPsw;
-}
 ?>
 
 <!DOCTYPE html>
