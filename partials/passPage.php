@@ -1,10 +1,6 @@
 <?php 
 session_start();
-$pswLength = $_GET["pswLength"] ?? "";
-include_once __DIR__ . './partials/function.php';
-$_SESSION["pswLength"] = $finalPsw = RandomPswGen($pswLength);
-
-
+$_SESSION["pswLength"]
 ?>
 
 <!DOCTYPE html>
@@ -29,24 +25,15 @@ $_SESSION["pswLength"] = $finalPsw = RandomPswGen($pswLength);
 </head>
 
 <body>
-  <div class="container mt-5">
+  <div class="container">
     <div class="card">
-      <h5 class="card-header">Inserisci la lunghezza della password da generare</h5>
+      <div class="card-header">
+        La tua password:
+      </div>
       <div class="card-body">
-        <form method="GET">
-          <div class="mb-3">
-            <input type="number" class="form-control" name="pswLength" id="pswLength">
-          </div>
-          <button class="btn btn-primary">Richiedi Password</button>
-        </form>
+        <p class="card-text"><?= $finalPsw ?></p>
       </div>
     </div>
-
-    <?php if(empty($finalPsw)) :?>
-    <div class="alert alert-danger mt-3" role="alert">
-      Attenzione, il campo della lunghezza è vuoto
-    </div>
-    <?php endif; ?>
   </div>
 </body>
 
