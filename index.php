@@ -1,5 +1,5 @@
 <?php 
-$pswLength = $_GET["pswLength"];
+$pswLength = $_GET["pswLength"] ?? "";
 $finalPsw = RandomPswGen($pswLength);
 
 function RandomPswGen($pswLength) {
