@@ -3,7 +3,7 @@ $pswLength = $_GET["pswLength"];
 $finalPsw = RandomPswGen($pswLength);
 
 function RandomPswGen($pswLength) {
-    $charList = '$!?£%&@#';
+    $charList = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$#@&%!?';
     $RandomPsw = "";
     for ($i = 0; $i < $pswLength; $i++) {
         $RandomPsw .= $charList[rand(0, strlen($charList) - 1)];
