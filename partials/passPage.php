@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$_SESSION["pswLength"]
+$finalPsw = $_SESSION["finalPsw"];
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,8 @@ $_SESSION["pswLength"]
 </head>
 
 <body>
-  <div class="container">
+  <div class="container mt-5">
+
     <div class="card">
       <div class="card-header">
         La tua password:
@@ -34,6 +35,7 @@ $_SESSION["pswLength"]
         <p class="card-text"><?= $finalPsw ?></p>
       </div>
     </div>
+
   </div>
 </body>
 

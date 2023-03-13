@@ -2,8 +2,12 @@
 session_start();
 $pswLength = $_GET["pswLength"] ?? "";
 include_once __DIR__ . './partials/function.php';
-$_SESSION["pswLength"] = $finalPsw = RandomPswGen($pswLength);
+$_SESSION["finalPsw"] = $finalPsw = RandomPswGen($pswLength);
 
+if(!empty($finalPsw)) {
+  header("Location: ./partials/passPage.php");
+
+};
 
 ?>
 
@@ -42,7 +46,7 @@ $_SESSION["pswLength"] = $finalPsw = RandomPswGen($pswLength);
       </div>
     </div>
 
-    <?php if(empty($finalPsw)) :?>
+    <?php if((empty($finalPsw)) && (!empty($_GET))) :?>
     <div class="alert alert-danger mt-3" role="alert">
       Attenzione, il campo della lunghezza è vuoto
     </div>
